@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <rect width="320" height="320" fill="#1a2e22"/>
+  <path d="M48 230 L118 130 L158 178 L208 108 L268 198 L288 168 L288 268 L48 268 Z" fill="#2c4a36"/>
+  <path d="M48 250 L130 190 L180 235 L240 175 L288 230 L288 268 L48 268 Z" fill="#0f1c15"/>
+  <circle cx="230" cy="100" r="22" fill="#d8c4a0"/>
+  <text x="160" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#f5f3ef">D</text>
+</svg>

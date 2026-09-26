@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Dhinakara Adventure</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="login-screen" class="login-screen">
+    <form id="login-form" class="login-card">
+      <img src="../assets/img/logo.png" alt="" class="login-logo">
+      <h1>Admin DA</h1>
+      <p>Kelola konten situs Dhinakara Adventure</p>
+      <label>
+        Kata sandi
+        <input type="password" id="login-pass" required autocomplete="current-password" placeholder="Masukkan kata sandi">
+      </label>
+      <button type="submit" class="btn btn-primary">Masuk</button>
+      <p class="login-hint">Default: <code>dhinakara</code> — ganti di Pengaturan setelah masuk.</p>
+      <a href="../index.html" class="login-back">← Kembali ke situs</a>
+    </form>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+          <strong>Admin DA</strong>
+          <span>CMS situs</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <button type="button" data-tab="dashboard" class="nav-item active">Dashboard</button>
+        <button type="button" data-tab="news" class="nav-item">Berita</button>
+        <button type="button" data-tab="events" class="nav-item">Agenda</button>
+        <button type="button" data-tab="gallery" class="nav-item">Galeri</button>
+        <button type="button" data-tab="divisions" class="nav-item">Divisi</button>
+        <button type="button" data-tab="struktur" class="nav-item">Struktur</button>
+        <button type="button" data-tab="hero" class="nav-item">Hero</button>
+        <button type="button" data-tab="site" class="nav-item">Identitas</button>
+        <button type="button" data-tab="settings" class="nav-item">Pengaturan</button>
+      </nav>
+      <div class="sidebar-foot">
+        <a href="../index.html" target="_blank" rel="noopener">Lihat situs ↗</a>
+        <button type="button" id="btn-logout" class="btn-text">Keluar</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2 id="page-title">Dashboard</h2>
+        <div class="topbar-actions">
+          <button type="button" id="btn-save" class="btn btn-primary">Simpan perubahan</button>
+          <button type="button" id="btn-export" class="btn btn-ghost">Export data.js</button>
+        </div>
+      </header>
+      <p id="toast" class="toast hidden" role="status"></p>
+
+      <section id="tab-dashboard" class="panel active">
+        <div class="stat-grid">
+          <div class="stat-card"><span id="stat-news">0</span><label>Berita</label></div>
+          <div class="stat-card"><span id="stat-events">0</span><label>Agenda</label></div>
+          <div class="stat-card"><span id="stat-gallery">0</span><label>Foto galeri</label></div>
+          <div class="stat-card"><span id="stat-struktur">0</span><label>Jabatan BPH</label></div>
+        </div>
+        <div class="callout">
+          <h3>Cara memakai admin</h3>
+          <ol>
+            <li>Edit konten di menu kiri, lalu klik <strong>Simpan perubahan</strong>.</li>
+            <li>Foto bisa diunggah dari perangkat (atau tetap pakai URL). File akan dikompres otomatis.</li>
+            <li>Perubahan langsung terlihat di situs (browser yang sama) via penyimpanan lokal.</li>
+            <li>Untuk deploy permanen: klik <strong>Export data.js</strong>, ganti file <code>js/data.js</code> di hosting.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="tab-news" class="panel">
+        <div class="panel-head">
+          <p>Kelola berita / kegiatan — unggah foto dari perangkat atau tempel URL.</p>
+          <button type="button" class="btn btn-primary" data-add="news">+ Tambah berita</button>
+        </div>
+        <div id="list-news" class="item-list"></div>
+      </section>
+
+      <section id="tab-events" class="panel">
+        <div class="panel-head">
+          <p>Agenda mendatang di beranda.</p>
+          <button type="button" class="btn btn-primary" data-add="events">+ Tambah agenda</button>
+        </div>
+        <div id="list-events" class="item-list"></div>
+      </section>
+
+      <section id="tab-gallery" class="panel">
+        <div class="panel-head">
+          <p>Foto galeri — unggah dari perangkat atau tempel URL.</p>
+          <button type="button" class="btn btn-primary" data-add="gallery">+ Tambah foto</button>
+        </div>
+        <div id="list-gallery" class="item-list"></div>
+      </section>
+
+      <section id="tab-divisions" class="panel">
+        <div class="panel-head">
+          <p>Tiga divisi di beranda — unggah foto lapangan untuk masing-masing.</p>
+        </div>
+        <div id="list-divisions" class="item-list"></div>
+      </section>
+
+      <section id="tab-struktur" class="panel">
+        <div class="callout struktur-guide">
+          <h3>Cara isi struktur BPH</h3>
+          <p>Yang Anda isi di sini akan tampil sebagai <strong>bagan kepengurusan</strong> di halaman Profil.</p>
+          <div class="struktur-guide-bagan" aria-hidden="true">
+            <div class="sg-row"><span class="sg-lead-text">Ketua Umum</span></div>
+            <div class="sg-line"></div>
+            <div class="sg-row"><span>Sekretaris</span><span>Bendahara</span></div>
+            <div class="sg-line"></div>
+            <div class="sg-row"><span>Kordiv</span><span>Peralatan</span><span>Medis</span><span>Humas</span></div>
+          </div>
+          <ol>
+            <li>Isi <strong>periode kepengurusan</strong> (contoh: 2025 / 2026).</li>
+            <li>Untuk tiap jabatan, isi <strong>nama pengurus</strong>. Boleh dikosongkan jika belum dipublikasikan.</li>
+            <li>Klik <strong>Simpan perubahan</strong>, lalu buka Profil untuk melihat hasilnya.</li>
+          </ol>
+        </div>
+
+        <div class="struktur-meta">
+          <h3 class="struktur-section-title">1. Informasi periode</h3>
+          <div class="form-grid form-grid-2">
+            <label>
+              Periode kepengurusan
+              <input type="text" id="struktur-periode" placeholder="Contoh: 2025 / 2026">
+              <span class="field-hint">Tahun masa jabatan BPH saat ini.</span>
+            </label>
+            <label>
+              Keterangan singkat
+              <input type="text" id="struktur-catatan" placeholder="Contoh: Badan Pengurus Harian (BPH)">
+              <span class="field-hint">Teks di bawah judul “Struktur organisasi”.</span>
+            </label>
+          </div>
+        </div>
+
+        <h3 class="struktur-section-title">2. Isi nama pengurus per jabatan</h3>
+        <p class="struktur-section-lead">Jabatan sudah mengikuti AD/ART. Admin hanya perlu mengganti <strong>nama</strong> (dan boleh menyunting deskripsi).</p>
+        <div id="list-struktur" class="item-list struktur-list"></div>
+        <div class="struktur-actions">
+          <button type="button" id="btn-restore-struktur" class="btn btn-ghost">Pulihkan contoh struktur bawaan</button>
+          <a class="btn btn-ghost" href="../profil.html#kepengurusan" target="_blank" rel="noopener">Lihat di Profil ↗</a>
+        </div>
+      </section>
+
+      <section id="tab-hero" class="panel">
+        <div class="panel-head">
+          <p>Slideshow hero beranda — unggah foto atau tempel URL.</p>
+          <button type="button" class="btn btn-primary" data-add="hero">+ Tambah slide</button>
+        </div>
+        <div id="list-hero" class="item-list"></div>
+      </section>
+
+      <section id="tab-site" class="panel">
+        <div class="panel-head">
+          <p>Identitas publik situs (tanpa nomor/email pribadi).</p>
+        </div>
+        <div class="form-grid form-grid-2">
+          <label>Nama UKM
+            <input type="text" id="site-name">
+          </label>
+          <label>Universitas
+            <input type="text" id="site-university">
+          </label>
+          <label>Tagline
+            <input type="text" id="site-tagline">
+          </label>
+          <label>Instagram URL
+            <input type="url" id="site-ig">
+          </label>
+          <label>Label Instagram
+            <input type="text" id="site-ig-label">
+          </label>
+          <label>Alamat baris 3
+            <input type="text" id="site-addr3">
+          </label>
+        </div>
+        <label class="block-label">Deskripsi singkat
+          <textarea id="site-desc" rows="4"></textarea>
+        </label>
+      </section>
+
+      <section id="tab-settings" class="panel">
+        <div class="callout">
+          <h3>Keamanan</h3>
+          <p>Admin ini berjalan di browser (tanpa server). Jangan bagikan kata sandi. Untuk produksi, batasi akses folder <code>/admin</code> di hosting.</p>
+        </div>
+        <div class="form-grid">
+          <label>Kata sandi baru
+            <input type="password" id="new-pass" placeholder="Minimal 6 karakter" autocomplete="new-password">
+          </label>
+          <label>Ulangi kata sandi
+            <input type="password" id="new-pass2" autocomplete="new-password">
+          </label>
+        </div>
+        <button type="button" id="btn-pass" class="btn btn-primary" style="margin-top:1rem">Ganti kata sandi</button>
+        <hr class="sep">
+        <button type="button" id="btn-reset" class="btn btn-danger">Reset semua ke data bawaan</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

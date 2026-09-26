@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#100b09"/>
+      <stop offset="0.55" stop-color="#271a12"/>
+      <stop offset="1" stop-color="#3d2918"/>
+    </linearGradient>
+    <linearGradient id="cliff" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a3726"/>
+      <stop offset="1" stop-color="#1a1310"/>
+    </linearGradient>
+    <linearGradient id="cliff2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2c2017"/>
+      <stop offset="1" stop-color="#120d0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" fill="url(#sky)"/>
+  <path d="M0 560 L0 120 L90 0 L200 140 L250 80 L330 190 L420 90 L520 240 L700 120 L800 260 L800 560 Z" fill="url(#cliff)"/>
+  <path d="M120 560 L150 420 L200 470 L260 380 L340 500 L460 360 L560 480 L700 420 L800 500 L800 560 Z" fill="url(#cliff2)"/>
+  <path d="M200 280 L120 400 L200 460 L280 400 Z" fill="#facc15" opacity="0.12"/>
+  <rect x="330" y="250" width="6" height="6" fill="#facc15" opacity="0.8"/>
+  <rect x="348" y="280" width="6" height="6" fill="#facc15" opacity="0.8"/>
+  <rect x="318" y="310" width="6" height="6" fill="#facc15" opacity="0.8"/>
+  <path d="M100 90 L120 60 L140 90 Z" fill="#fde68a" opacity="0.7"/>
+  <path d="M0 560 L150 470 L320 540 L520 460 L720 540 L800 500 L800 560 Z" fill="#0a0705"/>
+</svg>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhinakara Adventure — UKM Universitas Nusa Mandiri</title>
+  <meta name="description" content="Dhinakara Adventure (DA) — UKM Pencinta Alam Universitas Nusa Mandiri (Jatiwaringin, Margonda, Rawamangun). Didirikan 10 Oktober 2016.">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#faf9f7",
+            surface: "#ffffff",
+            ink: "#1a2218",
+            muted: "#667066",
+            forest: "#2a4634",
+            fdeep: "#18261c",
+            line: "#e4e0d8",
+            accent: "#b8920a",
+          },
+          fontFamily: {
+            display: ["Source Serif 4", "Georgia", "serif"],
+            body: ["Source Sans 3", "Segoe UI", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-body bg-bg text-ink antialiased clean-home">
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <header id="navbar" class="sticky top-0 z-40">
+    <nav class="clean-wrap flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/img/logo.png" alt="Logo Dhinakara Adventure" class="w-9 h-9 rounded-full object-cover">
+        <div>
+          <div class="brand-name">Dhinakara Adventure</div>
+          <div class="brand-sub hidden sm:block">UKM · Universitas Nusa Mandiri</div>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-6">
+        <a href="index.html" class="nav-link active">Beranda</a>
+        <a href="profil.html" class="nav-link">Profil</a>
+        <a href="kegiatan.html" class="nav-link">Kegiatan</a>
+        <a href="galeri.html" class="nav-link">Galeri</a>
+        <a href="diksar.html" class="nav-link">Diksar</a>
+        <a href="dikjut.html" class="nav-link">Dikjut</a>
+        <a href="kontak.html" class="nav-link">Kontak</a>
+        <a href="diksar.html" class="btn btn-primary !py-2 !px-3.5 text-sm">Daftar Diksar</a>
+      </div>
+      <button id="menu-btn" aria-expanded="false" aria-label="Buka menu" class="lg:hidden w-10 h-10 grid place-items-center">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden lg:hidden">
+      <div class="clean-wrap py-4 flex flex-col gap-3">
+        <a href="index.html" class="active">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="kegiatan.html">Kegiatan</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="diksar.html">Diksar</a>
+        <a href="dikjut.html">Dikjut</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="diksar.html" class="btn btn-primary justify-center mt-1">Daftar Diksar</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="clean-hero" id="hero">
+    <div class="hero-media" id="hero-slides" aria-live="polite"></div>
+    <div class="hero-scrim"></div>
+    <div class="clean-hero-content clean-wrap">
+      <p class="clean-kicker hero-reveal d1">UKM Pencinta Alam · Universitas Nusa Mandiri</p>
+      <h1 class="clean-title hero-reveal d2">Dhinakara Adventure</h1>
+      <p class="clean-lead hero-reveal d3">
+        Matahari bagi mahasiswa pencinta alam di Jatiwaringin, Margonda, dan Rawamangun.
+      </p>
+      <div class="clean-actions hero-reveal d4">
+        <a href="diksar.html" class="btn btn-accent">Daftar Diksar</a>
+        <a href="#tentang" class="btn btn-ghost-light">Kenali kami</a>
+      </div>
+    </div>
+    <div class="hero-controls clean-wrap">
+      <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Slide hero"></div>
+      <div class="hero-slide-label" id="hero-label"></div>
+    </div>
+  </section>
+
+  <section id="tentang" class="clean-wrap clean-pad">
+    <div class="clean-about">
+      <div>
+        <p class="clean-label">Siapa kami</p>
+        <h2 class="clean-h2">Tentang Dhinakara Adventure</h2>
+        <p class="clean-text">
+          Dhinakara berarti matahari. Sejak 10 Oktober 2016, DA menjadi wadah mahasiswa UNM
+          untuk berkegiatan di alam bebas, peduli lingkungan, dan membangun karakter bersama.
+        </p>
+        <p class="clean-text">
+          Anggota baru masuk lewat Diksar menuju Anggota Muda. Selanjutnya tersedia Dikjut
+          menuju Anggota Tetap.
+        </p>
+        <a href="profil.html" class="clean-link">Profil organisasi →</a>
+      </div>
+      <img
+        class="clean-about-img"
+        src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1100&q=80&auto=format&fit=crop"
+        alt="Hutan dan jalur alam"
+        loading="lazy">
+    </div>
+  </section>
+
+  <section class="clean-band">
+    <div class="clean-wrap clean-pad">
+      <div class="clean-intro">
+        <p class="clean-label">Kegiatan lapangan</p>
+        <h2 class="clean-h2">Tiga divisi</h2>
+        <p class="clean-text">Fokus latihan dan ekspedisi anggota DA.</p>
+      </div>
+      <div id="render-divisions-cards" class="clean-divs club-div-grid"></div>
+    </div>
+  </section>
+
+  <section class="clean-wrap clean-pad">
+    <div class="clean-row-head">
+      <div>
+        <p class="clean-label">Update</p>
+        <h2 class="clean-h2">Kegiatan terbaru</h2>
+      </div>
+      <a href="kegiatan.html" class="clean-link">Semua kegiatan →</a>
+    </div>
+    <div id="render-news" class="clean-news club-news-list"></div>
+  </section>
+
+  <section id="agenda" class="clean-band">
+    <div class="clean-wrap clean-pad">
+      <div class="clean-row-head">
+        <div>
+          <p class="clean-label">Jadwal</p>
+          <h2 class="clean-h2">Agenda mendatang</h2>
+        </div>
+      </div>
+      <div id="render-events" class="clean-agenda club-agenda"></div>
+    </div>
+  </section>
+
+  <section class="clean-wrap clean-pad">
+    <div class="clean-row-head">
+      <div>
+        <p class="clean-label">Dokumentasi</p>
+        <h2 class="clean-h2">Galeri</h2>
+      </div>
+      <a href="galeri.html" class="clean-link">Semua foto →</a>
+    </div>
+    <div id="render-gallery-home" class="clean-gallery club-gallery"></div>
+  </section>
+
+  <section class="clean-cta-section">
+    <div class="clean-wrap">
+      <div class="clean-cta-box">
+        <div>
+          <p class="clean-label clean-label-light">Gabung</p>
+          <h2 class="clean-h2 clean-h2-light">Siap masuk jalur Diksar?</h2>
+          <p class="clean-text clean-text-light">
+            Syarat dan alur ada di halaman Diksar. Tanya juga lewat Instagram resmi UKM.
+          </p>
+        </div>
+        <div class="clean-actions">
+          <a href="diksar.html" class="btn btn-accent">Info Diksar</a>
+          <a href="dikjut.html" class="btn btn-ghost-light">Info Dikjut</a>
+          <a href="https://instagram.com/dhinakara.adventure" target="_blank" rel="noopener" class="btn btn-ghost-light">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner clean-wrap">
+      <div class="footer-simple">
+        <div class="footer-simple-brand">
+          <img src="assets/img/logo.png" alt="" class="w-7 h-7 rounded-full object-cover">
+          <span>Dhinakara Adventure</span>
+        </div>
+        <div class="footer-simple-links">
+          <a href="profil.html">Profil</a>
+          <a href="kegiatan.html">Kegiatan</a>
+          <a href="galeri.html">Galeri</a>
+          <a href="diksar.html">Diksar</a>
+          <a href="kontak.html">Kontak</a>
+          <a href="https://instagram.com/dhinakara.adventure" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <p class="footer-simple-copy">&copy; <span id="footer-year">2026</span> DA · UNM</p>
+      </div>
+      <ul id="render-divisions" class="hidden"></ul>
+      <span id="contact-address" class="hidden">Jl. Raya Jatiwaringin No. 2, Jakarta Timur</span>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Kembali ke atas" class="float-btn fixed bottom-5 right-5 z-40">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+  </button>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

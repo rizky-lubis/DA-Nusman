@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1510"/>
+      <stop offset="0.45" stop-color="#0e1f16"/>
+      <stop offset="1" stop-color="#14532d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.32" r="0.28">
+      <stop offset="0" stop-color="#facc15" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#facc15" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="0.7" stop-color="#facc15"/>
+      <stop offset="1" stop-color="#eab308" stop-opacity="0.85"/>
+    </radialGradient>
+    <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c4527"/>
+      <stop offset="1" stop-color="#0d2116"/>
+    </linearGradient>
+    <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f2a1a"/>
+      <stop offset="1" stop-color="#071510"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <g fill="#ffffff" opacity="0.5">
+    <circle cx="180" cy="120" r="1.6"/><circle cx="320" cy="70" r="1.3"/>
+    <circle cx="560" cy="130" r="1.8"/><circle cx="780" cy="90" r="1.2"/>
+    <circle cx="1040" cy="140" r="1.5"/><circle cx="1220" cy="60" r="1.7"/>
+    <circle cx="1420" cy="120" r="1.2"/><circle cx="220" cy="220" r="1.1"/>
+    <circle cx="900" cy="200" r="1.3"/><circle cx="1350" cy="230" r="1.1"/>
+  </g>
+  <circle cx="1180" cy="300" r="80" fill="url(#sun)"/>
+  <path d="M0 520 L220 330 L340 430 L480 260 L640 400 L760 330 L900 470 L1040 350 L1200 430 L1330 380 L1470 470 L1600 410 L1600 900 L0 900 Z" fill="url(#m1)"/>
+  <path d="M0 660 L180 520 L330 600 L470 500 L620 620 L800 500 L960 640 L1120 540 L1280 650 L1450 560 L1600 620 L1600 900 L0 900 Z" fill="url(#m2)"/>
+  <path d="M0 780 L220 700 L420 750 L660 680 L880 760 L1150 680 L1400 770 L1600 720 L1600 900 L0 900 Z" fill="#050c09"/>
+</svg>

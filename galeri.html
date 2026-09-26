@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri — Dhinakara Adventure</title>
+  <meta name="description" content="Dokumentasi foto kegiatan Dhinakara Adventure.">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#faf9f7",
+            surface: "#ffffff",
+            ink: "#1a2218",
+            muted: "#667066",
+            forest: "#2a4634",
+            fdeep: "#18261c",
+            line: "#e4e0d8",
+            accent: "#b8920a",
+          },
+          fontFamily: {
+            display: ["Source Serif 4", "Georgia", "serif"],
+            body: ["Source Sans 3", "Segoe UI", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-body bg-bg text-ink antialiased clean-page">
+
+  <header id="navbar" class="sticky top-0 z-40">
+    <nav class="clean-wrap flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/img/logo.png" alt="Logo Dhinakara Adventure" class="w-9 h-9 rounded-full object-cover">
+        <div>
+          <div class="brand-name">Dhinakara Adventure</div>
+          <div class="brand-sub hidden sm:block">UKM · Universitas Nusa Mandiri</div>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-6">
+        <a href="index.html" class="nav-link">Beranda</a>
+        <a href="profil.html" class="nav-link">Profil</a>
+        <a href="kegiatan.html" class="nav-link">Kegiatan</a>
+        <a href="galeri.html" class="nav-link active">Galeri</a>
+        <a href="diksar.html" class="nav-link">Diksar</a>
+        <a href="dikjut.html" class="nav-link">Dikjut</a>
+        <a href="kontak.html" class="nav-link">Kontak</a>
+        <a href="diksar.html" class="btn btn-primary !py-2 !px-3.5 text-sm">Daftar Diksar</a>
+      </div>
+      <button id="menu-btn" aria-expanded="false" aria-label="Buka menu" class="lg:hidden w-10 h-10 grid place-items-center">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden lg:hidden">
+      <div class="clean-wrap py-4 flex flex-col gap-3">
+        <a href="index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="kegiatan.html">Kegiatan</a>
+        <a href="galeri.html" class="active">Galeri</a>
+        <a href="diksar.html">Diksar</a>
+        <a href="dikjut.html">Dikjut</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="diksar.html" class="btn btn-primary justify-center mt-1">Daftar Diksar</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="clean-page-hero">
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?w=1600&q=80&auto=format&fit=crop" alt="Perkemahan di alam">
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="clean-hero-content clean-wrap">
+      <p class="clean-kicker">Arsip visual</p>
+      <h1 class="clean-title">Galeri</h1>
+      <p class="clean-lead">Dokumentasi kegiatan lapangan Dhinakara Adventure. Klik foto untuk memperbesar.</p>
+    </div>
+  </section>
+
+  <section class="clean-wrap clean-pad">
+    <div class="flex flex-wrap gap-2">
+      <button data-filter="all" class="filter-gallery filter-btn active">Semua</button>
+      <button data-filter="Gunung Hutan" class="filter-gallery filter-btn">Gunung Hutan</button>
+      <button data-filter="Panjat Tebing" class="filter-gallery filter-btn">Panjat Tebing</button>
+      <button data-filter="Arung Jeram" class="filter-gallery filter-btn">Arung Jeram</button>
+      <button data-filter="Diksar" class="filter-gallery filter-btn">Diksar</button>
+      <button data-filter="Dikjut" class="filter-gallery filter-btn">Dikjut</button>
+    </div>
+    <div id="render-gallery" class="clean-gallery-full"></div>
+  </section>
+
+  <section class="clean-cta-section">
+    <div class="clean-wrap">
+      <div class="clean-cta-box">
+        <div>
+          <p class="clean-label clean-label-light">Gabung</p>
+          <h2 class="clean-h2 clean-h2-light">Ingin ikut dokumentasi berikutnya?</h2>
+          <p class="clean-text clean-text-light">Mulai dari pendaftaran Diksar.</p>
+        </div>
+        <div class="clean-actions">
+          <a href="diksar.html" class="btn btn-accent">Daftar Diksar</a>
+          <a href="kegiatan.html" class="btn btn-ghost-light">Lihat kegiatan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner clean-wrap">
+      <div class="footer-simple">
+        <div class="footer-simple-brand">
+          <img src="assets/img/logo.png" alt="" class="w-7 h-7 rounded-full object-cover">
+          <span>Dhinakara Adventure</span>
+        </div>
+        <div class="footer-simple-links">
+          <a href="profil.html">Profil</a>
+          <a href="kegiatan.html">Kegiatan</a>
+          <a href="galeri.html">Galeri</a>
+          <a href="diksar.html">Diksar</a>
+          <a href="kontak.html">Kontak</a>
+          <a href="https://instagram.com/dhinakara.adventure" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <p class="footer-simple-copy">&copy; <span id="footer-year">2026</span> DA · UNM</p>
+      </div>
+      <ul id="render-divisions" class="hidden"></ul>
+      <span id="contact-address" class="hidden">Jl. Raya Jatiwaringin No. 2, Jakarta Timur</span>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Kembali ke atas" class="float-btn fixed bottom-5 right-5 z-40">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+  </button>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
