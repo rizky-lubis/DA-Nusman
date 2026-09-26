@@ -2,10 +2,10 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Admin — Dhinakara Adventure</title>
   <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
@@ -14,12 +14,12 @@
 <body>
   <div id="login-screen" class="login-screen">
     <form id="login-form" class="login-card">
-      <img src="../assets/img/logo.png" alt="" class="login-logo">
+      <img src="../assets/img/logo.svg" alt="" class="login-logo">
       <h1>Admin DA</h1>
       <p>Kelola konten situs Dhinakara Adventure</p>
       <label>
         Kata sandi
-        <input type="password" id="login-pass" required autocomplete="current-password" placeholder="Masukkan kata sandi">
+        <input type="password" id="login-pass" required autocomplete="current-password" placeholder="Masukkan kata sandi" inputmode="text">
       </label>
       <button type="submit" class="btn btn-primary">Masuk</button>
       <p class="login-hint">Default: <code>dhinakara</code> — ganti di Pengaturan setelah masuk.</p>
@@ -29,14 +29,20 @@
 
   <div id="app" class="app hidden">
     <aside class="sidebar">
-      <div class="sidebar-brand">
-        <img src="../assets/img/logo.png" alt="">
-        <div>
-          <strong>Admin DA</strong>
-          <span>CMS situs</span>
+      <div class="sidebar-top">
+        <div class="sidebar-brand">
+          <img src="../assets/img/logo.svg" alt="">
+          <div>
+            <strong>Admin DA</strong>
+            <span>CMS situs</span>
+          </div>
+        </div>
+        <div class="sidebar-foot sidebar-foot-desktop">
+          <a href="../index.html" target="_blank" rel="noopener">Lihat situs ↗</a>
+          <button type="button" id="btn-logout" class="btn-text">Keluar</button>
         </div>
       </div>
-      <nav class="sidebar-nav">
+      <nav class="sidebar-nav" aria-label="Menu admin">
         <button type="button" data-tab="dashboard" class="nav-item active">Dashboard</button>
         <button type="button" data-tab="news" class="nav-item">Berita</button>
         <button type="button" data-tab="events" class="nav-item">Agenda</button>
@@ -47,9 +53,9 @@
         <button type="button" data-tab="site" class="nav-item">Identitas</button>
         <button type="button" data-tab="settings" class="nav-item">Pengaturan</button>
       </nav>
-      <div class="sidebar-foot">
+      <div class="sidebar-foot sidebar-foot-mobile">
         <a href="../index.html" target="_blank" rel="noopener">Lihat situs ↗</a>
-        <button type="button" id="btn-logout" class="btn-text">Keluar</button>
+        <button type="button" id="btn-logout-mobile" class="btn-text">Keluar</button>
       </div>
     </aside>
 
@@ -57,8 +63,8 @@
       <header class="topbar">
         <h2 id="page-title">Dashboard</h2>
         <div class="topbar-actions">
-          <button type="button" id="btn-save" class="btn btn-primary">Simpan perubahan</button>
-          <button type="button" id="btn-export" class="btn btn-ghost">Export data.js</button>
+          <button type="button" id="btn-save" class="btn btn-primary">Simpan</button>
+          <button type="button" id="btn-export" class="btn btn-ghost">Export</button>
         </div>
       </header>
       <p id="toast" class="toast hidden" role="status"></p>

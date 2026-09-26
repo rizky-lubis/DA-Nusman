@@ -769,6 +769,8 @@
   });
 
   $("btn-logout").addEventListener("click", showLogin);
+  var logoutMobile = $("btn-logout-mobile");
+  if (logoutMobile) logoutMobile.addEventListener("click", showLogin);
 
   $("btn-save").addEventListener("click", function () {
     syncSiteFromForm();
